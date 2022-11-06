@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  gds-backend:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DB_USER=postgres
+      - DB_PASS=Arango181997
+      - DB_NAME=GDS_consulting_SAP
+      - DB_PORT=host.docker.internal
+      - DB=postgres
+    
+    command: npm run dev

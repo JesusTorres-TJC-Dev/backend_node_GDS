@@ -1,0 +1,6 @@
+version: '3.9'
+services:
+  gds-backend:
+    build: .
+    environment:
+      - PORT=3001

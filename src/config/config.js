@@ -5,8 +5,8 @@ module.exports = {
     "username": process.env.DB_USER || "postgres",
     "password": process.env.DB_PASS || "Arango181997",
     "database": process.env.DB_NAME || "GDS_consulting_SAP",
-    "host": "127.0.0.1",
-    "dialect": "postgres"
+    "host": process.env.DB_PORT || "127.0.0.1",
+    "dialect": process.env.DB || "postgres"
   },
   "test": {
     "username": "root",

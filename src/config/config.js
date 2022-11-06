@@ -1,10 +1,12 @@
-{
+require('dotenv').config()
+
+module.exports = {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
+    "username": process.env.DB_USER || "postgres",
+    "password": process.env.DB_PASS || "Arango181997",
+    "database": process.env.DB_NAME || "GDS_consulting_SAP",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",

@@ -32,8 +32,9 @@ const loginUser = async (authUser: Auth) => {
 
     if(!isCorrect) return "PASSWORD_INCORRECT"
     const id = checkIs[0].id.toString()
+    const role = checkIs[0].role.toString()
 
-    const token = generateToken(id)
+    const token = generateToken(id, role)
 
     const data = {
         token: token,

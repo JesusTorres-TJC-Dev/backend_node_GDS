@@ -12,6 +12,9 @@ module.exports =  {
         allowNull: false,
         type: Sequelize.STRING
       },
+      role: {
+        type: Sequelize.STRING
+      },
       email: {
         allowNull: false,
         type: Sequelize.STRING

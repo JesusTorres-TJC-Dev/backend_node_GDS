@@ -2,6 +2,7 @@
 import {
   Model, UUIDV4
 } from 'sequelize';
+import Roles from '../config/Roles';
 
 import { UserAttributes } from '../interfaces/User.interface';
 
@@ -15,6 +16,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
      */
     id!: string;
     userName!: string;
+    role!: string;
     email!: string;
     password!: string;
     static associate(models: any) {
@@ -31,6 +33,10 @@ module.exports = (sequelize: any, DataTypes: any) => {
     userName: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    role: {
+      type: DataTypes.STRING,
+      defaultValue: Roles[2]
     },
     email: {
       type: DataTypes.STRING,

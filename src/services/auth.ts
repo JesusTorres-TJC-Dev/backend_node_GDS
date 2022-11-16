@@ -20,10 +20,12 @@ const registerUser = async ({ userName, email, password }: UserAttributes) => {
 
 const loginUser = async (authUser: Auth) => {
     const {email, password} = authUser
-
+    //console.log(authUser)
     const checkIs = await User.findAll({where: {email: email}})
 
-    if(!checkIs) return "NOT_FOUND_USER"
+    if(checkIs && checkIs.lenght === 0) return "NOT_FOUND_USER"
+
+    //console.log(checkIs)
 
     const passwordHash = checkIs[0].password
     const isCorrect = await verified(password, passwordHash)

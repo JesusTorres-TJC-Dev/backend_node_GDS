@@ -21,31 +21,40 @@ module.exports = {
     return queryInterface.bulkInsert('Users', [
       {
         id: uuidv4(),
-        userName: 'John Admin',
-        email: 'exampleAdmin@example.com',
-        role: "Admin",
-        password: await hash('123456789', 8),
+        user_email: 'exampleAdmin@example.com',
+        user_password: await hash('123456789', 8),
+        user_role: "ADMIN",
+        user_name: 'John',
+        user_last_name: 'Admin',
+        user_phone: '+58 4147407577',
+        user_country: 'VE',
+        user_image: 'https://toppng.com/public/uploads/preview/avatar-windows-10-person-ico-115628997732fatjfxg5s.png',
+        user_verify: true,
         createdAt: new Date(),
         updatedAt: new Date()
-      },
-      {
-        id: uuidv4(),
-        userName: 'John Teacher',
-        email: 'exampleTeacher@example.com',
-        role: "Teacher",
-        password: await hash('123456789', 8),
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        id: uuidv4(),
-        userName: 'John Student',
-        email: 'exampleStudent@example.com',
-        role: "Student",
-        password: await hash('123456789', 8),
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
+      }
+      // {
+      //   id: uuidv4(),
+      //   userName: 'John Teacher',
+      //   email: 'exampleTeacher@example.com',
+      //   role: "Teacher",
+      //   verify: false,
+      //   code: uuidv4(),
+      //   password: await hash('123456789', 8),
+      //   createdAt: new Date(),
+      //   updatedAt: new Date()
+      // },
+      // {
+      //   id: uuidv4(),
+      //   userName: 'John Student',
+      //   email: 'exampleStudent@example.com',
+      //   role: "Student",
+      //   verify: false,
+      //   code: uuidv4(),
+      //   password: await hash('123456789', 8),
+      //   createdAt: new Date(),
+      //   updatedAt: new Date()
+      // },
     ])
   },
 

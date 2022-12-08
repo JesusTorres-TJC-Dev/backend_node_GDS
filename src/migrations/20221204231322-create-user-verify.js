@@ -1,9 +1,9 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
-module.exports =  {
+module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
-      user_id: {
+    await queryInterface.createTable('UserVerifies', {
+      code_id: {
         type: Sequelize.INTEGER.UNSIGNED,
         primaryKey : true,
         autoIncrement : true
@@ -13,34 +13,11 @@ module.exports =  {
         type: Sequelize.STRING,
         unique: true
       },
-      user_password: {
+      user_code: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      user_role: {
-        type: Sequelize.STRING
-      },
-      user_name: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      user_last_name: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      user_phone: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      user_country: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      user_image: {
-        allowNull: false,
-        type: Sequelize.STRING
-      },
-      user_verify: {
+      user_code_verify: {
         allowNull: false,
         type: Sequelize.BOOLEAN
       },
@@ -55,6 +32,6 @@ module.exports =  {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('UserVerifies');
   }
 };

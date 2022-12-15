@@ -1,6 +1,6 @@
 'use strict';
 import {
-  Model, UUIDV4
+  Model
 } from 'sequelize';
 import { UserEmailVerifyAttributes } from '../interfaces/auth.interface';
 

@@ -13,6 +13,11 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      category_slug: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+      },
       category_description: {
         type: Sequelize.STRING,
         allowNull: false,

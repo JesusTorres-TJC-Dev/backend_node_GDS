@@ -3,11 +3,11 @@ import { userEmailVerify } from "../interfaces/auth.interface";
 
 const JWT_SECRET = process.env.JWT_SECRET || "tjc.GDS.consulting.SAP.010100101"
 
-const generateToken = (id: string, user_role: string) => {
+const generateToken = (user_id: number, user_role: string) => {
     const jwt = sign(
         {
             "userInfo": {
-                id,
+                user_id,
                 user_role
             }
         },

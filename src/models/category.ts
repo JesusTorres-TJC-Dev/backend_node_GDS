@@ -1,6 +1,6 @@
 'use strict';
 import {
-  Model, UUIDV4
+  Model
 } from 'sequelize';
 import { CategoryAttributes } from '../interfaces/category.interface';
 module.exports = (sequelize: any, DataTypes: any) => {
@@ -13,6 +13,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
      */
      category_id!: number;
      category_name!: string;
+     category_slug!: string;
      category_description!: string;
      category_icon!: string;
      category_status!: boolean;
@@ -30,6 +31,11 @@ module.exports = (sequelize: any, DataTypes: any) => {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
+    },
+    category_slug: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
     },
     category_description: {
       type: DataTypes.STRING,

@@ -3,7 +3,7 @@ import { JwtPayload } from "jsonwebtoken";
 import { userEmailVerify } from "./auth.interface";
 
 type userinfo = {
-    id: string,
+    user_id: string,
     user_role: string
 }
 

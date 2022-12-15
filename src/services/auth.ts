@@ -17,6 +17,7 @@ const registerUser = async (regiserUser: Register) => {
         user_role,
         user_name,
         user_last_name,
+        user_slug,
         user_phone,
         user_country
     } = regiserUser
@@ -27,7 +28,7 @@ const registerUser = async (regiserUser: Register) => {
 
     const passHash = await encrypt(user_password)
 
-    const registerNewUser = await User.create({ user_email, user_password: passHash, user_role, user_name, user_last_name, user_phone, user_country })
+    const registerNewUser = await User.create({ user_email, user_password: passHash, user_role, user_name, user_last_name, user_slug, user_phone, user_country })
 
     if (user_role != Roles.ADMIN){
         verifyAccountMethod(user_email, user_name, user_role, false)
@@ -74,23 +75,22 @@ const resendEmailForAccountVerify = async (resendEmailData: Register) => {
 
 const loginUser = async (authUser: Login) => {
     const {user_email, user_password} = authUser
+    const checkIs = await User.findOne({ where: {user_email: user_email}});
 
-    const checkIs = await User.findAll({where: {user_email: user_email}})
+    if(checkIs === null) return "NOT_FOUND_USER"
 
-    if(checkIs && checkIs.lenght === 0) return "NOT_FOUND_USER"
-
-    const passwordHash = checkIs[0].user_password
+    const passwordHash = checkIs.user_password
     const isCorrect = await verified(user_password, passwordHash)
 
     if(!isCorrect) return "PASSWORD_INCORRECT"
-    const id = checkIs[0].id.toString()
-    const user_role = checkIs[0].user_role.toString()
+    const user_id = checkIs.user_id
+    const user_role = checkIs.user_role
 
-    const user_token = generateToken(id, user_role)
+    const user_token = generateToken(user_id, user_role)
 
     const data = {
         user_token: user_token,
-        user: checkIs[0]
+        user: checkIs
     }
 
     return data

@@ -5,7 +5,7 @@ import { verifyToken } from "../utils/jwt.handle";
 const checkJwt = (req: RequestExt, res: Response, next: NextFunction) => {
     try {
         const jwtByUser = req.headers.authorization?.split(" ").pop() || ''
-        const isUser = verifyToken(jwtByUser) as { id: string, user_role: string }
+        const isUser = verifyToken(jwtByUser) as { user_id: string, user_role: string }
 
         if (!isUser) return res.status(401).send("NO_TIENES_UN_JWT_VALIDO")
 

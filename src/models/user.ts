@@ -20,6 +20,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
     user_role!: Roles;
     user_name!: string;
     user_last_name!: string;
+    user_slug!: string;
     user_phone!: string;
     user_country!: string;
     user_image!: string;
@@ -58,6 +59,10 @@ module.exports = (sequelize: any, DataTypes: any) => {
       allowNull: false
     },
     user_last_name: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    user_slug: {
       type: DataTypes.STRING,
       allowNull: false
     },

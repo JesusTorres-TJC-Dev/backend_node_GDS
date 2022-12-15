@@ -18,6 +18,11 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      subcategory_slug: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
+      },
       subcategory_description: {
         type: Sequelize.STRING,
         allowNull: false,

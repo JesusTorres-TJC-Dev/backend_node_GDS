@@ -5,6 +5,7 @@ export interface User extends Login {
     user_role: Roles;
     user_name: string;
     user_last_name: string;
+    user_slug: string;
     user_phone: string;
     user_country: string;
 }

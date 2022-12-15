@@ -1,6 +1,6 @@
 'use strict';
 import {
-  Model, UUIDV4
+  Model
 } from 'sequelize';
 import { SubCategoryAttributes } from '../interfaces/category.interface';
 module.exports = (sequelize: any, DataTypes: any) => {
@@ -14,6 +14,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
     subcategory_id!: number;
     category_id!: number;
     subcategory_name!: string;
+    subcategory_slug!: string;
     subcategory_description!: string;
     subcategory_icon!: string;
     subcategory_status!: boolean;
@@ -33,6 +34,11 @@ module.exports = (sequelize: any, DataTypes: any) => {
       allowNull: false,
     },
     subcategory_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
+    },
+    subcategory_slug: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true

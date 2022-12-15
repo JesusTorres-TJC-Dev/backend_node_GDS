@@ -20,12 +20,12 @@ module.exports = {
 
     return queryInterface.bulkInsert('Users', [
       {
-        id: uuidv4(),
         user_email: 'exampleAdmin@example.com',
         user_password: await hash('123456789', 8),
         user_role: "ADMIN",
         user_name: 'John',
         user_last_name: 'Admin',
+        user_slug: 'John-Admin',
         user_phone: '+58 4147407577',
         user_country: 'VE',
         user_image: 'https://toppng.com/public/uploads/preview/avatar-windows-10-person-ico-115628997732fatjfxg5s.png',
